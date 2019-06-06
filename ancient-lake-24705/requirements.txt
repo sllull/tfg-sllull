@@ -1,0 +1,9 @@
+pymysql
+flask
+scikit-learn
+pandas
+numpy
+django
+gunicorn
+django-heroku
+flask_restful

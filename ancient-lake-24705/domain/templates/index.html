@@ -1,0 +1,29 @@
+{#{% extends "base.html" %}#}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1>Predictions</h1>
+    <p>This is a Python application deployed to Heroku, to predict heart attack</p>
+  </div>
+</div>
+<form action="#" method="post">
+  <p>Dia<input type="number" name="dia"></p>
+  <p>Mes<input type="number" name="mes"></p>
+  <p>Any<input type="number" name="any"></p>
+  <p>Codi postal: <input type="number" name="cp" size="5"></p>
+  <p>Edat: <input type="number" name="edat" size="3"></p>
+  <p>Sexo:
+    <input type="radio" name="hm" value="1"> Hombre
+    <input type="radio" name="hm" value="0"> Mujer
+  </p>
+    <p>Pes: <input type="number" name="pes" size="3"></p>
+    <p>Urgencia o Visita <input type="number" name="urgent" size="3"></p>
+  <p>
+    <input type="submit" value="Enviar">
+    <input type="reset" value="Borrar">
+  </p>
+</form>
+{% endblock %}
