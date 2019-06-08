@@ -2,11 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Predicio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>CIE</title>
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1>Diagnostics en CIE-10</h1>
+    <p>Aqui pots veure el resultat obtingut</p>
+  </div>
+</div>
     <p>Aquesta es la prediccio calculada per l'algorisme <b id="pred"></b></p>
 </head>
 <body>
-
+    <div class='button'>
+        <button class="btn btn-primary" onclick="predGood()">Correcte</button>
+        <button class="btn btn-primary" onclick="predBad()">Incorrecte</button>
+    </div>
+    <img src="/plot" width="600px" />
+    <img src="/plot1" width="600px" />
+    <img src="/plot2" width="600px" />
+    <form form action="#" method="get">
+        <button class="btn btn-primary" type="submit">Tornar a predir un nou tractament</button>
+    </form>
 </body>
 <script type="text/javascript">
     const xhttp = new XMLHttpRequest();
@@ -18,5 +35,13 @@
       }
     }
     xhttp.send()
+
+    function predGood() {
+        alert("correcte");
+    }
+
+    function predBad() {
+      alert("incorrecte");
+    }
 </script>
 </html>

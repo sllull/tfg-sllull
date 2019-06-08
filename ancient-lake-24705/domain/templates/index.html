@@ -2,28 +2,68 @@
 {% load staticfiles %}
 
 {% block content %}
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <div class="jumbotron text-center">
   <div class="container">
-    <h1>Predictions</h1>
-    <p>This is a Python application deployed to Heroku, to predict heart attack</p>
+    <h1>Diagnostics en CIE-10</h1>
+    <p>Introdueix les dades del pacient per predir el diagnostic</p>
   </div>
 </div>
-<form action="#" method="post">
-  <p>Dia<input type="number" name="dia"></p>
-  <p>Mes<input type="number" name="mes"></p>
-  <p>Any<input type="number" name="any"></p>
-  <p>Codi postal: <input type="number" name="cp" size="5"></p>
-  <p>Edat: <input type="number" name="edat" size="3"></p>
-  <p>Sexo:
-    <input type="radio" name="hm" value="1"> Hombre
-    <input type="radio" name="hm" value="0"> Mujer
-  </p>
-    <p>Pes: <input type="number" name="pes" size="3"></p>
-    <p>Urgencia o Visita <input type="number" name="urgent" size="3"></p>
-  <p>
-    <input type="submit" value="Enviar">
-    <input type="reset" value="Borrar">
-  </p>
+<form class="needs-validation" form action="#" method="post">
+    <div class="col-md-4 mb-3">
+          <label for="validationServer01">Data</label>
+          <input type="date"  class="form-control" id="data" name="data"  required>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationServer02">Codi Postal</label>
+      <input type="number"  class="form-control" id="cp" name="cp" placeholder="8252" min="8080" max="8582" required>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationServerUsername">Edat</label>
+      <input type="number"  class="form-control" id="edat" placeholder="24" name="edat" max="114" required>
+    </div>
+  </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationServer04">Pes</label>
+      <input type="number" id="pes" class="form-control" name="pes" placeholder="50" size="3" min="3" max="300" required>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationServer03">Sexe</label>
+      <input type="radio"  name="hm" value="1" required> Masculi
+      <input type="radio"  name="hm" value="0"> Femeni
+    </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationServer05">Tipus de Visita</label>
+      <input type="radio" name="u-v" value="1" required> Urgencia
+      <input type="radio" name="u-v" value="0"> Visita
+    </div>
+  </div>
+    <div class="col-md-3 mb-3">
+        <button class="btn btn-primary" type="submit">Enviar</button>
+        <button class="btn btn-primary" type="reset">Borrar</button>
+    </div>
 </form>
+
+<script>
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
 {% endblock %}
