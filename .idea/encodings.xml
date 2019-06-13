@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/ancient-lake-24705/cie10.csv" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/ancient-lake-24705/cie9.csv" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/ancient-lake-24705/domain/cie10.csv" charset="windows-1252" />
   </component>
