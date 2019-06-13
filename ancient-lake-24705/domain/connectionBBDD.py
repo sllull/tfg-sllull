@@ -6,10 +6,10 @@ from domain.readJSON import getJSON
 
 def getDB():
     mydb = pymysql.connect(
-        "mydbtfg-cluster.cluster-cmsvfrkk9jfj.eu-west-3.rds.amazonaws.com",
-        "sllull",
-        "Vy55Uu58",
-        "historials_clinics"
+        "URL",
+        "USER",
+        "PASSW",
+        "SCHEMA"
     )
     return mydb
 
