@@ -2,37 +2,46 @@
 {% load staticfiles %}
 
 {% block content %}
-<meta charset="utf-8">
+<meta charset="utf-8" xmlns:margin-left="http://www.w3.org/1999/xhtml">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>CIE-10</title>
+<style>
+    form {
+      margin-left: 300px;
+    }
+</style>
+
 <div class="jumbotron text-center">
   <div class="container">
     <h1>Diagnostics en CIE-10</h1>
     <p>Introdueix les dades del pacient per predir el diagnostic</p>
   </div>
 </div>
+
 <form class="needs-validation" form action="#" method="post">
-    <div class="col-md-4 mb-3">
+    <div class="col-md-4 mb-3" >
           <label for="validationServer01">Data</label>
           <input type="date"  class="form-control" id="data" name="data"  required>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationServer02">Codi Postal</label>
-      <input type="number"  class="form-control" id="cp" name="cp" placeholder="8252" min="8080" max="8582" required>
+      <input type="number"  class="form-control" id="cp" name="cp" placeholder="Introdueix el codi postal" min="8080" max="8582" required>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationServerUsername">Edat</label>
-      <input type="number"  class="form-control" id="edat" placeholder="24" name="edat" max="114" required>
+      <input type="number"  class="form-control" id="edat" placeholder="Introdueix l'edat" name="edat" max="114" required>
     </div>
   </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationServer04">Pes</label>
-      <input type="number" id="pes" class="form-control" name="pes" placeholder="50" size="3" min="3" max="300" required>
-    </div>
+
     <div class="col-md-3 mb-3">
       <label for="validationServer03">Sexe</label>
       <input type="radio"  name="hm" value="1" required> Masculi
       <input type="radio"  name="hm" value="0"> Femeni
+    </div>
+        <div class="col-md-3 mb-3">
+      <label for="validationServer04">Pes</label>
+      <input type="number" id="pes" class="form-control" name="pes" placeholder="Introdueix el pes" size="3" min="3" max="300" required>
     </div>
     </div>
     <div class="col-md-3 mb-3">
@@ -42,8 +51,8 @@
     </div>
   </div>
     <div class="col-md-3 mb-3">
-        <button class="btn btn-primary" type="submit">Enviar</button>
         <button class="btn btn-primary" type="reset">Borrar</button>
+        <button class="btn btn-primary" type="submit">Enviar</button>
     </div>
 </form>
 

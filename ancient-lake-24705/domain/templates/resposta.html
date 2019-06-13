@@ -4,26 +4,29 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<title>CIE</title>
+<title>CIE-10</title>
 <div class="jumbotron text-center">
   <div class="container">
     <h1>Diagnostics en CIE-10</h1>
     <p>Aqui pots veure el resultat obtingut</p>
   </div>
 </div>
-    <p>Aquesta es la prediccio calculada per l'algorisme <b id="pred"></b></p>
+    <style>
+        div.all {
+          margin-left: 300px;
+        }
+</style>
 </head>
 <body>
-    <div class='button'>
+<div class="all">
+    <p>El diagnostic interpretat per l'algorisme és: <b id="pred"></b>: <b id="name"></b></p>
+    <div class='button' id="button">
         <button class="btn btn-primary" onclick="predGood()">Correcte</button>
         <button class="btn btn-primary" onclick="predBad()">Incorrecte</button>
     </div>
-    <img src="/plot" width="600px" />
-    <img src="/plot1" width="600px" />
-    <img src="/plot2" width="600px" />
-    <form form action="#" method="get">
-        <button class="btn btn-primary" type="submit">Tornar a predir un nou tractament</button>
-    </form>
+    <img src="/plot" />
+        <button class="btn btn-primary" onclick="location.href='https://ancient-lake-24705.herokuapp.com/'" type="submit">Tornar a predir un nou tractament</button>
+</div>
 </body>
 <script type="text/javascript">
     const xhttp = new XMLHttpRequest();
@@ -32,16 +35,22 @@
       if (this.status == 200) {
           let datos = JSON.parse(this.responseText);
           document.getElementById("pred").innerHTML=datos.prediction;
+          document.getElementById("name").innerHTML=datos.nom_diag;
       }
     }
     xhttp.send()
 
     function predGood() {
-        alert("correcte");
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "send", false );
+        xmlHttp.send( null );
+        document.getElementById("button").style.display = "none";
+        alert(xmlHttp.responseText);
     }
 
     function predBad() {
-      alert("incorrecte");
+      document.getElementById("button").style.display = "none";
+      alert("La predicció ha estat eliminada");
     }
 </script>
 </html>
